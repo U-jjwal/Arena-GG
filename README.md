@@ -1,4 +1,3 @@
-README.md — Arena GG (Phase 1 Prototype)
 # 🎮 Arena GG — Grassroots Mobile Esports Platform
 
 <div align="center">
@@ -17,6 +16,76 @@ Arena GG is a mobile-first grassroots esports tournament platform built for casu
 
 ---
 
+## ✅ Phase 1 Completion Status
+
+*Check the boxes below as features are completed.*
+
+### Core Platform
+- [ ] Frontend setup (React + Vite)
+- [ ] Backend setup (Node.js + Express)
+- [ ] MongoDB database connected
+- [ ] Environment variables configured
+
+### Authentication
+- [ ] Phone/email registration API
+- [ ] Login API with JWT
+- [ ] Get current user API
+- [ ] Login page UI
+- [ ] Register page UI
+- [ ] Protected routes middleware
+
+### Tournament System
+- [ ] Tournament model (Mongoose)
+- [ ] GET /api/tournaments (list)
+- [ ] GET /api/tournaments/:id (details)
+- [ ] POST /api/tournaments (admin create)
+- [ ] POST /api/tournaments/:id/register (player join)
+- [ ] Tournament listing page
+- [ ] Tournament detail page
+- [ ] Registration form component
+
+### Match Flow
+- [ ] Match room ID & password display
+- [ ] Match status tracking
+- [ ] Match timer UI
+- [ ] GET /api/matches/:id
+
+### Result Submission
+- [ ] Screenshot upload (Multer + Cloudinary)
+- [ ] Winner claim system
+- [ ] POST /api/matches/:id/result
+- [ ] Submit Result page UI
+
+### Admin Panel
+- [ ] Admin dashboard page
+- [ ] Create tournament form
+- [ ] View registered players
+- [ ] Upload room credentials UI
+- [ ] Verify results page
+- [ ] Approve/reject verification API
+- [ ] Mark payout completed manually
+
+### Player Features
+- [ ] Player dashboard
+- [ ] My tournaments list
+- [ ] Profile page
+- [ ] Basic leaderboard
+
+### Deployment
+- [ ] Frontend deployed (Vercel)
+- [ ] Backend deployed (Railway/Render)
+- [ ] Database on MongoDB Atlas
+- [ ] Cloudinary image storage configured
+
+### Final Validation
+- [ ] 20–50 real players joined
+- [ ] 1 successful tournament conducted
+- [ ] Prize paid within 24 hours
+- [ ] Player satisfaction ≥ 4/5
+- [ ] Major bugs minimal
+
+---
+
 # 📌 Project Goal
 
 The goal of this repository is to build the **Phase 1 Prototype** of Arena GG before **30 May**.
@@ -31,7 +100,6 @@ Plays Match →
 Uploads Winning Screenshot →
 Admin Verifies →
 Prize Paid via UPI
-
 For Phase 1, tournaments will be hosted manually by the Arena GG team only.
 
 No external organisers, no automated payments, and no advanced esports infrastructure yet.
@@ -39,33 +107,48 @@ No external organisers, no automated payments, and no advanced esports infrastru
 The purpose is to prove that:
 
 Players are interested
+
 The tournament flow works
+
 Players trust the platform
+
 Prize distribution works smoothly
+
 Users enjoy the experience
 
 Target:
 
 20–50 real players
-1 successful tournament
-Real prize payout
-Positive player feedback
-🚨 The Problem We Are Solving
 
+1 successful tournament
+
+Real prize payout
+
+Positive player feedback
+
+🚨 The Problem We Are Solving
 Current grassroots tournaments in India mostly happen through:
 
 WhatsApp groups
+
 Discord servers
+
 Google Forms
+
 Manual spreadsheets
 
 Problems:
 
 Fake tournaments
+
 Fake screenshots
+
 No guaranteed payout
+
 No proper structure
+
 No player profiles/history
+
 No trusted platform for casual gamers
 
 Arena GG aims to become:
@@ -74,101 +157,160 @@ The infrastructure layer between casual gaming and professional esports.
 
 🎯 Phase 1 Scope (Till 30 May)
 ✅ What We ARE Building
-1. Authentication
+Authentication
+
 Phone/email registration
+
 Login system
+
 JWT authentication
+
 User profile creation
-2. Tournament System
+
+Tournament System
+
 Create tournaments manually (admin only)
+
 Tournament listing page
+
 Tournament detail page
+
 Join tournament flow
+
 Player registration with:
+
 In-game name
+
 Free Fire UID
+
 Team name (optional)
-3. Match Flow
+
+Match Flow
+
 Room ID & password display
+
 Match status updates
+
 Match timing display
-4. Result Submission
+
+Result Submission
+
 Screenshot upload
+
 Winner claim system
+
 Admin verification panel
-5. Admin Panel
+
+Admin Panel
 
 Admin can:
 
 Create tournaments
+
 View registered players
+
 Upload room credentials
+
 Verify screenshots
+
 Declare winners
+
 Mark payout completed
-6. Manual Prize Distribution
+
+Manual Prize Distribution
 
 For Phase 1:
 
 No Razorpay
+
 No automated gateway
 
 Prize payout will happen manually through:
 
 UPI ID
+
 PhonePe
+
 Paytm
+
 Mobile number
 
 The admin will mark payout status manually.
 
-7. Basic Leaderboard
+Basic Leaderboard
+
 Tournament winners
+
 Basic rankings
+
 Match result display
-8. Responsive Mobile UI
+
+Responsive Mobile UI
 
 The platform is mobile-first because:
 
 Most target users are mobile gamers
-Majority use budget Android devices
-Most traffic will come from phones
-❌ What We Are NOT Building Yet
 
+Majority use budget Android devices
+
+Most traffic will come from phones
+
+❌ What We Are NOT Building Yet
 These features are intentionally postponed for later phases:
 
 Razorpay integration
-Automated payouts
-Team finder
-Real-time WebSockets
-Organisation portal
-College dashboards
-Advanced brackets
-Anti-cheat AI
-Mobile app
-BGMI support
-Sponsorship system
-Wallet system
-Streaming features
-Subscription plans
-Discord integration
-🧠 Product Vision
 
+Automated payouts
+
+Team finder
+
+Real-time WebSockets
+
+Organisation portal
+
+College dashboards
+
+Advanced brackets
+
+Anti-cheat AI
+
+Mobile app
+
+BGMI support
+
+Sponsorship system
+
+Wallet system
+
+Streaming features
+
+Subscription plans
+
+Discord integration
+
+🧠 Product Vision
 Arena GG is not just a tournament website.
 
 The long-term vision is to build:
 
 India’s grassroots esports infrastructure
+
 Community tournament ecosystem
+
 College esports platform
+
 Trusted mobile esports network
 
 Future support:
 
 Free Fire
+
 BGMI
+
 COD Mobile
+
 Valorant Mobile
+
 🛠 Tech Stack (Phase 1)
 Frontend
 Technology	Purpose
@@ -197,6 +339,7 @@ Railway / Render	Backend hosting
 MongoDB Atlas	Database
 Cloudinary	Screenshot/image storage
 🏗 Planned Project Structure
+text
 arena-gg/
 │
 ├── client/                 # React Frontend
@@ -226,42 +369,71 @@ arena-gg/
 🎨 Frontend Pages (Phase 1)
 Public Pages
 Landing Page
+
 Tournament List
+
 Tournament Details
+
 Login/Register
+
 About
+
 Player Pages
 Dashboard
+
 My Tournaments
+
 Match Details
+
 Submit Result
+
 Profile
+
 Admin Pages
 Admin Dashboard
+
 Create Tournament
+
 Tournament Management
+
 Player Registrations
+
 Result Verification
+
 Payout Management
+
 🔌 Backend API Plan
 Auth APIs
 POST /api/auth/register
+
 POST /api/auth/login
-GET  /api/auth/me
+
+GET /api/auth/me
+
 Tournament APIs
-GET    /api/tournaments
-GET    /api/tournaments/:id
-POST   /api/tournaments
-POST   /api/tournaments/:id/register
+GET /api/tournaments
+
+GET /api/tournaments/:id
+
+POST /api/tournaments
+
+POST /api/tournaments/:id/register
+
 Match APIs
-GET    /api/matches/:id
-POST   /api/matches/:id/result
+GET /api/matches/:id
+
+POST /api/matches/:id/result
+
 Admin APIs
-POST   /api/admin/tournament
-PATCH  /api/admin/match/:id
-PATCH  /api/admin/result/:id
+POST /api/admin/tournament
+
+PATCH /api/admin/match/:id
+
+PATCH /api/admin/result/:id
+
 🗄 Database Models
 User
+js
 {
   name,
   email,
@@ -272,6 +444,7 @@ User
   createdAt
 }
 Tournament
+js
 {
   title,
   game,
@@ -284,6 +457,7 @@ Tournament
   status
 }
 Registration
+js
 {
   userId,
   tournamentId,
@@ -291,6 +465,7 @@ Registration
   teamName
 }
 Match Result
+js
 {
   tournamentId,
   userId,
@@ -300,73 +475,97 @@ Match Result
 }
 📅 Development Timeline
 Week 1
-Goal:
-
-Build core platform structure
+Goal: Build core platform structure
 
 Tasks:
+
 Setup frontend
-Setup backend
-Setup database
-Authentication system
-Tournament APIs
-Tournament pages
-Admin panel basic setup
-Week 2
-Goal:
 
-Run real tournament
+Setup backend
+
+Setup database
+
+Authentication system
+
+Tournament APIs
+
+Tournament pages
+
+Admin panel basic setup
+
+Week 2
+Goal: Run real tournament
 
 Tasks:
+
 Result submission
+
 Screenshot upload
+
 Admin verification
+
 UI improvements
+
 Bug fixing
+
 Deploy prototype
+
 Conduct tournament
+
 Collect feedback
+
 👥 Team Responsibilities
 Frontend Team
-
-Responsible for:
-
 UI/UX
+
 React pages
+
 API integration
+
 Responsive design
+
 State management
+
 Backend Team
-
-Responsible for:
-
 REST APIs
+
 Authentication
+
 Database models
+
 Admin controls
+
 File uploads
+
 Security
+
 Admin/Operations
-
-Responsible for:
-
 Creating tournaments
-Managing players
-Sending room credentials
-Verifying winners
-Sending payouts manually
-🔐 Security Considerations
 
+Managing players
+
+Sending room credentials
+
+Verifying winners
+
+Sending payouts manually
+
+🔐 Security Considerations
 Even in prototype stage:
 
 Passwords must be hashed
-JWT authentication required
-Admin routes protected
-Screenshot uploads validated
-Basic rate limiting
-Secure environment variables
-📈 Success Metrics for Phase 1
 
+JWT authentication required
+
+Admin routes protected
+
+Screenshot uploads validated
+
+Basic rate limiting
+
+Secure environment variables
+
+📈 Success Metrics for Phase 1
 The prototype is successful if we achieve:
 
 Metric	Goal
@@ -377,40 +576,62 @@ Player Satisfaction	≥ 4/5
 Major Bugs During Tournament	Minimal
 🚀 Future Roadmap
 Phase 2
+
 Razorpay integration
+
 Auto brackets
+
 Player profiles
+
 Real-time updates
+
 BGMI support
+
 Phase 3
+
 Organisation portal
+
 College tournaments
+
 Custom branding
+
 Phase 4
+
 Team finder
+
 Sponsorships
+
 Monetisation
+
 Phase 5
+
 Mobile app
+
 Streaming
+
 Esports scouting
+
 ⚠ Important Notes
 Manual Operations in Phase 1
-
 Some systems are intentionally manual:
 
 Room creation
+
 Prize payout
+
 Match verification
 
 This helps us:
 
 Build faster
-Validate the idea
-Learn real user behavior
-Avoid overengineering early
-💡 Long-Term Mission
 
+Validate the idea
+
+Learn real user behavior
+
+Avoid overengineering early
+
+💡 Long-Term Mission
 Arena GG wants to become:
 
 “The home of grassroots mobile esports in India & Southeast Asia.”
@@ -418,11 +639,14 @@ Arena GG wants to become:
 We are building for:
 
 Casual gamers
-College players
-Small esports communities
-Future competitive talent
-📄 Internal Documents
 
+College players
+
+Small esports communities
+
+Future competitive talent
+
+📄 Internal Documents
 Project planning and architecture documents are available in:
 
 /docs
@@ -430,63 +654,64 @@ Project planning and architecture documents are available in:
 These include:
 
 Product strategy
-Architecture planning
-Market research
-Future roadmap
-Technical planning
-🤝 Contribution Rules
 
+Architecture planning
+
+Market research
+
+Future roadmap
+
+Technical planning
+
+🤝 Contribution Rules
 Before pushing:
 
+bash
 npm run lint
-
 Branch naming:
 
+text
 feature/auth-system
 feature/tournament-ui
 fix/login-bug
-
 Commit style:
 
+text
 feat: add tournament registration
 fix: resolve login token issue
 ui: improve mobile navbar
 🏁 Final Goal Before 30 May
-
 By 30 May we want:
+
 ✅ A working prototype
+
 ✅ Real players using it
+
 ✅ One successful tournament completed
+
 ✅ Winners paid successfully
+
 ✅ Positive feedback from gamers
 
 That is the ONLY goal of Phase 1.
 
 Everything else comes later.
 
-❤️ Arena GG
-
-Built for the next generation of grassroots gamers.
-
-
-Based on the uploaded Arena GG planning and architecture documents. :contentReference[oaicite:0]{index=0} :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
-
-
-# 📁 Detailed Project Folder Structure (Phase 1 Prototype)
-
+📁 Detailed Project Folder Structure (Phase 1 Prototype)
 This section explains the exact folder structure, pages, components, backend architecture, and files we are planning to create for the first prototype build till 30 May.
 
 The goal is to keep the architecture:
-- scalable
-- beginner-friendly
-- production-ready
-- easy for team collaboration
 
----
+scalable
 
-# 🖥 FRONTEND STRUCTURE (React + Vite)
+beginner-friendly
 
-```txt
+production-ready
+
+easy for team collaboration
+
+🖥 FRONTEND STRUCTURE (React + Vite)
+txt
 client/
 │
 ├── public/
@@ -614,15 +839,9 @@ client/
 ├── .env
 ├── package.json
 └── vite.config.js
-```
-
----
-
-# 🌐 FRONTEND PAGES FLOW
-
-## Public User Flow
-
-```txt
+🌐 FRONTEND PAGES FLOW
+Public User Flow
+txt
 Home Page
    ↓
 Login/Register
@@ -632,13 +851,8 @@ Tournament List
 Tournament Details
    ↓
 Join Tournament
-```
-
----
-
-## Player Flow
-
-```txt
+Player Flow
+txt
 Dashboard
    ↓
 My Tournament
@@ -648,13 +862,8 @@ Match Room
 Upload Winning Screenshot
    ↓
 Wait For Verification
-```
-
----
-
-## Admin Flow
-
-```txt
+Admin Flow
+txt
 Admin Dashboard
    ↓
 Create Tournament
@@ -666,13 +875,8 @@ Add Room ID & Password
 Verify Winner Screenshot
    ↓
 Mark Prize Paid
-```
-
----
-
-# ⚙ BACKEND STRUCTURE (Node.js + Express)
-
-```txt
+⚙ BACKEND STRUCTURE (Node.js + Express)
+txt
 server/
 │
 ├── src/
@@ -737,15 +941,9 @@ server/
 ├── .env
 ├── package.json
 └── nodemon.json
-```
-
----
-
-# 🗄 DATABASE COLLECTIONS
-
-## 1. Users Collection
-
-```js
+🗄 DATABASE COLLECTIONS
+1. Users Collection
+js
 {
   name,
   email,
@@ -756,13 +954,8 @@ server/
   avatar,
   createdAt
 }
-```
-
----
-
-## 2. Tournament Collection
-
-```js
+2. Tournament Collection
+js
 {
   title,
   description,
@@ -776,13 +969,8 @@ server/
   roomPassword,
   status
 }
-```
-
----
-
-## 3. Registration Collection
-
-```js
+3. Registration Collection
+js
 {
   userId,
   tournamentId,
@@ -790,13 +978,8 @@ server/
   freeFireUID,
   joinedAt
 }
-```
-
----
-
-## 4. Result Collection
-
-```js
+4. Result Collection
+js
 {
   tournamentId,
   userId,
@@ -805,198 +988,177 @@ server/
   verificationStatus,
   verifiedBy
 }
-```
-
----
-
-# 🔌 API STRUCTURE
-
-## Auth APIs
-
-```http
+🔌 API STRUCTURE
+Auth APIs
+http
 POST /api/auth/register
 POST /api/auth/login
 GET  /api/auth/me
-```
-
----
-
-## Tournament APIs
-
-```http
+Tournament APIs
+http
 GET    /api/tournaments
 GET    /api/tournaments/:id
 POST   /api/tournaments
 POST   /api/tournaments/:id/register
 PATCH  /api/tournaments/:id
 DELETE /api/tournaments/:id
-```
-
----
-
-## Match APIs
-
-```http
+Match APIs
+http
 GET   /api/matches/:id
 POST  /api/matches/:id/result
 POST  /api/matches/:id/upload
-```
-
----
-
-## Admin APIs
-
-```http
+Admin APIs
+http
 GET    /api/admin/dashboard
 GET    /api/admin/registrations
 PATCH  /api/admin/verify-result/:id
 PATCH  /api/admin/payout/:id
-```
+🎨 IMPORTANT UI SCREENS
+1. Landing Page
+Hero section
 
----
+Features
 
-# 🎨 IMPORTANT UI SCREENS
+Tournament highlights
 
-## 1. Landing Page
-Contains:
-- Hero section
-- Features
-- Tournament highlights
-- CTA buttons
-- Footer
+CTA buttons
 
----
+Footer
 
-## 2. Tournament Details Page
-Contains:
-- Banner
-- Prize pool
-- Entry fee
-- Date & time
-- Rules
-- Join button
+2. Tournament Details Page
+Banner
 
----
+Prize pool
 
-## 3. Match Room Page
-Contains:
-- Room ID
-- Room Password
-- Match timer
-- Instructions
-- Upload result button
+Entry fee
 
----
+Date & time
 
-## 4. Result Upload Page
-Contains:
-- Screenshot uploader
-- Position input
-- Submit button
+Rules
 
----
+Join button
 
-## 5. Admin Verification Page
-Contains:
-- Uploaded screenshots
-- Player info
-- Approve/Reject buttons
+3. Match Room Page
+Room ID
 
----
+Room Password
 
-# 🚀 INITIAL DEVELOPMENT START ORDER
+Match timer
 
-## FRONTEND START ORDER
+Instructions
 
-### Day 1
-- Setup React + Vite
-- Setup Tailwind
-- Setup Routing
-- Setup Layouts
+Upload result button
 
-### Day 2
-- Authentication pages
-- Navbar/Footer
-- Tournament cards
+4. Result Upload Page
+Screenshot uploader
 
-### Day 3
-- Tournament detail page
-- Registration form
-- Dashboard
+Position input
 
-### Day 4
-- Match room page
-- Result upload page
+Submit button
 
-### Day 5
-- Admin dashboard
-- Verification UI
+5. Admin Verification Page
+Uploaded screenshots
 
----
+Player info
 
-## BACKEND START ORDER
+Approve/Reject buttons
 
-### Day 1
-- Setup Express server
-- Setup MongoDB
-- Folder structure
+🚀 INITIAL DEVELOPMENT START ORDER
+FRONTEND START ORDER
+Day 1
+Setup React + Vite
 
-### Day 2
-- Auth APIs
-- JWT auth
-- User model
+Setup Tailwind
 
-### Day 3
-- Tournament CRUD APIs
+Setup Routing
 
-### Day 4
-- Match APIs
-- Result upload APIs
+Setup Layouts
 
-### Day 5
-- Admin APIs
-- Deployment
+Day 2
+Authentication pages
 
----
+Navbar/Footer
 
-# 📦 NPM PACKAGES
+Tournament cards
 
-## Frontend
+Day 3
+Tournament detail page
 
-```bash
+Registration form
+
+Dashboard
+
+Day 4
+Match room page
+
+Result upload page
+
+Day 5
+Admin dashboard
+
+Verification UI
+
+BACKEND START ORDER
+Day 1
+Setup Express server
+
+Setup MongoDB
+
+Folder structure
+
+Day 2
+Auth APIs
+
+JWT auth
+
+User model
+
+Day 3
+Tournament CRUD APIs
+
+Day 4
+Match APIs
+
+Result upload APIs
+
+Day 5
+Admin APIs
+
+Deployment
+
+📦 NPM PACKAGES
+Frontend
+bash
 npm install react-router-dom axios react-hook-form zod zustand react-hot-toast
-```
-
-```bash
+bash
 npm install -D tailwindcss postcss autoprefixer
-```
-
----
-
-## Backend
-
-```bash
+Backend
+bash
 npm install express mongoose dotenv bcryptjs jsonwebtoken cors multer cloudinary
-```
-
-```bash
+bash
 npm install -D nodemon
-```
-
----
-
-# 🔥 FINAL PHASE 1 DELIVERABLE
-
+🔥 FINAL PHASE 1 DELIVERABLE
 By 30 May we should have:
 
-✅ Fully working frontend  
-✅ Fully working backend  
-✅ Tournament registration system  
-✅ Match room system  
-✅ Screenshot upload system  
-✅ Admin verification panel  
-✅ Manual UPI payout system  
-✅ Hosted prototype  
-✅ Real tournament conducted  
+✅ Fully working frontend
+
+✅ Fully working backend
+
+✅ Tournament registration system
+
+✅ Match room system
+
+✅ Screenshot upload system
+
+✅ Admin verification panel
+
+✅ Manual UPI payout system
+
+✅ Hosted prototype
+
+✅ Real tournament conducted
 
 That is the only target for Phase 1.
+
+❤️ Arena GG
+Built for the next generation of grassroots gamers
