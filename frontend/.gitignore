@@ -1,0 +1,22 @@
+ 
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+.env
+# React Native Stack Base
+
+.expo
+__generated__
+
+# End of https://mrkandreev.name/snippets/gitignore-generator/#react,ReactNative
