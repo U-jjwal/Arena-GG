@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARENA GG - Tournaments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "primary-container": "#ff5717",
+                    "on-secondary-fixed-variant": "#004e5f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary": "#003642",
+                    "on-tertiary": "#432c00",
+                    "on-secondary-container": "#005669",
+                    "surface-variant": "#353534",
+                    "on-primary-container": "#521300",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-primary-fixed-variant": "#842500",
+                    "background": "#131313",
+                    "on-tertiary-fixed": "#281900",
+                    "surface-tint": "#ffb59e",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed": "#b4ebff",
+                    "tertiary-container": "#c08600",
+                    "on-primary": "#5e1700",
+                    "surface-container": "#201f1f",
+                    "secondary-container": "#00d2fd",
+                    "tertiary-fixed": "#ffdeac",
+                    "primary": "#ffb59e",
+                    "tertiary-fixed-dim": "#ffba38",
+                    "surface-bright": "#3a3939",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-primary": "#ad3300",
+                    "on-surface-variant": "#e6beb2",
+                    "secondary-fixed-dim": "#3cd7ff",
+                    "tertiary": "#ffba38",
+                    "on-error": "#690005",
+                    "outline-variant": "#5c4037",
+                    "primary-fixed-dim": "#ffb59e",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed": "#ffdbd0",
+                    "outline": "#ac897e",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#a2e7ff",
+                    "surface-dim": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-fixed": "#001f27",
+                    "on-tertiary-container": "#3a2600",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "container-padding": "16px",
+                    "sm": "12px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "body-md": ["DM Sans"],
+                    "label-mono": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "display-md": ["Barlow Condensed"],
+                    "headline-sm": ["Barlow Condensed"],
+                    "display-lg": ["Barlow Condensed"],
+                    "label-bold": ["DM Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cta-glow {
+            box-shadow: 0 0 15px rgba(255, 87, 23, 0.4);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 10px rgba(0, 210, 253, 0.3);
+        }
+        .active-path {
+            opacity: 1;
+            filter: drop-shadow(0 0 2px #00d2fd);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-md">
+<span id="top-menu-button" class="material-symbols-outlined text-on-surface cursor-pointer">menu</span>
+<h1 class="font-display-md text-display-md italic tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(255,87,23,0.6)]">ARENA GG</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity cursor-pointer">notifications</span>
+</div>
+</header>
+<main class="pt-20 pb-24 px-container-padding min-h-screen">
+<!-- Header Section -->
+<section class="mb-lg">
+<h2 class="font-display-md text-display-md uppercase tracking-tight mb-md">TOURNAMENTS</h2>
+<!-- Search Bar -->
+<div class="relative mb-md group">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-secondary-container transition-colors">sports_esports</span>
+</div>
+<input class="w-full bg-surface-container-lowest border border-white/10 rounded-lg py-sm pl-11 pr-md text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-secondary-container focus:ring-0 transition-all font-body-md" placeholder="Search tournaments..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-xs overflow-x-auto pb-xs no-scrollbar">
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-full font-label-bold text-label-bold whitespace-nowrap active:scale-95 transition-transform">All</button>
+<button class="bg-surface-container-high text-on-surface px-md py-xs rounded-full font-label-bold text-label-bold border border-white/5 whitespace-nowrap hover:bg-surface-variant transition-colors">Live</button>
+<button class="bg-surface-container-high text-on-surface px-md py-xs rounded-full font-label-bold text-label-bold border border-white/5 whitespace-nowrap hover:bg-surface-variant transition-colors">Upcoming</button>
+<button class="bg-surface-container-high text-on-surface px-md py-xs rounded-full font-label-bold text-label-bold border border-white/5 whitespace-nowrap hover:bg-surface-variant transition-colors">Free</button>
+<button class="bg-surface-container-high text-on-surface px-md py-xs rounded-full font-label-bold text-label-bold border border-white/5 whitespace-nowrap hover:bg-surface-variant transition-colors">Paid</button>
+</div>
+</section>
+<!-- Tournament List -->
+<div class="space-y-md" id="tournament-list">
+<!-- Tournament Card 1 (Live/Cyan) -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col border-l-4 border-l-secondary-container relative group">
+<div class="h-32 w-full relative overflow-hidden">
+<img alt="Cyberpunk Tournament" class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-500" data-alt="A gritty, cinematic close-up of a high-end mobile gaming setup with neon cyan and orange lighting reflections on the screen. The background shows a blurred, futuristic esports arena with massive digital screens and a dense urban cyberpunk crowd. The atmosphere is intense and competitive, utilizing deep blacks and vibrant high-contrast lighting to emphasize a tactical, grassroots gaming vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-NnqUnFu4Vr9ZJRDDSJa4rRaUtplAvddUR5nE7FYC0tVprHkS4MDbCvlE20BAJ6J6gTGujvgzp6-AT_9wmh0umstg_LgWq91RlsBdJ5oewMXbjfSMB0ABI2UTHMtBRvhtisGeuQaEzl7V4cMRzO_2N0hl_JxtWdLsKYDYxEnd0-nybDlpuVmenwT-OZVaGwiWtFsBYHf48nASP5nq7WPlwnOr0F33ILw0KVyo1sQLzU6bYLRLvHD6MgevEw6zorX9kr_FVWB_L4_e"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute top-sm right-sm bg-secondary-container/20 backdrop-blur-md border border-secondary-container px-sm py-base rounded-full">
+<span class="font-label-bold text-label-bold text-secondary-container uppercase tracking-widest animate-pulse">Live</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-sm text-headline-sm uppercase leading-tight">BGMI ULTIMATE CLASH S4</h3>
+<div class="text-right">
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Prize Pool</p>
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim">₹1,000</p>
+</div>
+</div>
+<div class="flex items-center gap-md mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">groups</span>
+<span class="font-body-md text-on-surface">12/16 <span class="text-on-surface-variant/60">Slots</span></span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">timer</span>
+<span class="font-label-bold text-label-bold text-secondary-container">02:14:15 LEFT</span>
+</div>
+</div>
+<a href="tournament-details.html" class="inline-flex w-full mt-md bg-primary-container text-white py-sm rounded-lg font-label-bold uppercase tracking-widest cta-glow active:scale-[0.96] transition-all justify-center">View Details</a>
+</div>
+</div>
+<!-- Tournament Card 2 (Featured/Gold) -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col border-l-4 border-l-tertiary-fixed-dim relative group">
+<div class="h-32 w-full relative overflow-hidden">
+<img alt="FPS Tournament" class="w-full h-full object-cover grayscale-[20%] group-hover:scale-105 transition-transform duration-500" data-alt="A tactical shooter game scene rendered in a high-fidelity digital art style with explosive orange and deep navy blue color grading. A silhouette of a professional gamer is visible in the foreground under dramatic lighting. The environment is a futuristic military compound with glowing orange terminals and micro-border tech elements. The overall mood is high-stakes, professional, and aggressive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-vKTP3rDBpO9ygeOkDcKQXsTKDYQEBPAjanJ4nmr3oaW2aZpS6UkXAIShBtl4xrR_P4HjEWTmpC3ayHIQnsba-cQBXU6C3BR4ai7fRqfxVhEMuMJC5lV3F29qUE_7ddF-nAgbUEv3We8y9WyPxMQosuFvUz7yScojqOIDMSD1e8babeSWSmhZ71gG2moDZlEKm06m05Jad4bz90S4Qcuumbtsa9UzFnPKZbgkC0zQZoLjr11MqteQVB-Ebf51aPCs08R_l23Z7tL3"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute top-sm right-sm bg-tertiary-fixed-dim/20 backdrop-blur-md border border-tertiary-fixed-dim px-sm py-base rounded-full">
+<span class="font-label-bold text-label-bold text-tertiary-fixed-dim uppercase tracking-widest">Featured</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-sm text-headline-sm uppercase leading-tight">VALORANT MOBILE ELITE</h3>
+<div class="text-right">
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Prize Pool</p>
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim">₹5,000</p>
+</div>
+</div>
+<div class="flex items-center gap-md mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">groups</span>
+<span class="font-body-md text-on-surface">48/64 <span class="text-on-surface-variant/60">Slots</span></span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">event</span>
+<span class="font-label-bold text-label-bold text-secondary-container">STARTS IN 4H 30M</span>
+</div>
+</div>
+<a href="tournament-details.html" class="inline-flex w-full mt-md bg-primary-container text-white py-sm rounded-lg font-label-bold uppercase tracking-widest cta-glow active:scale-[0.96] transition-all justify-center">View Details</a>
+</div>
+</div>
+<!-- Tournament Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col border-l-4 border-l-white/20 relative group">
+<div class="h-32 w-full relative overflow-hidden">
+<img alt="Free Tournament" class="w-full h-full object-cover grayscale-[50%] group-hover:scale-105 transition-transform duration-500" data-alt="Abstract digital rendering of a competitive gaming arena floor with isometric grid patterns and glowing circuit lines in electric blue and muted charcoal. Subtle smoke and particle effects float across the dark surface. The visual style is minimalist yet high-tech, focusing on precision and mathematical grid structures typical of cyberpunk brutalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcssqJ4ti-uraV8xRQeFxby17g2MoFzEXkwF3Ygh8mcr9dXUx_BQ-R7nEPCZ8p8JevFzg2Z4rWRpKuFK64SwRse9C9mDm4gIZdQoNbi0bT2J3wM0YOv9l5ZA8prwqzN2zb2PHjwxYQlOYX0yedRhuxVSfUznhtRTRs9csNBql-VsII525E_m3vLvP4viN1X4kB5LvCjnxgXZ_B8pO_wIBeJVeORvS8FTmz7X4-enVBPC72pnCNgkKLnCAGppFZoaUXRMBNZ06dwBhz"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute top-sm right-sm bg-surface-container-high/40 backdrop-blur-md border border-white/10 px-sm py-base rounded-full">
+<span class="font-label-bold text-label-bold text-on-surface uppercase tracking-widest">Free Entry</span>
+</div>
+</div>
+<div class="p-md">
+<div class="flex justify-between items-start mb-base">
+<h3 class="font-headline-sm text-headline-sm uppercase leading-tight">SCRIMS: PRO NIGHTS</h3>
+<div class="text-right">
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Prize Pool</p>
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim">₹500</p>
+</div>
+</div>
+<div class="flex items-center gap-md mt-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">groups</span>
+<span class="font-body-md text-on-surface">100/100 <span class="text-error">Full</span></span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-container text-sm">schedule</span>
+<span class="font-label-bold text-label-bold text-secondary-container">CLOSED</span>
+</div>
+</div>
+<button class="w-full mt-md bg-surface-variant text-on-surface-variant py-sm rounded-lg font-label-bold uppercase tracking-widest cursor-not-allowed opacity-50">Slots Full</button>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-20 text-center" id="empty-state">
+<span class="material-symbols-outlined text-6xl text-on-surface-variant/20 mb-md">mist</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase mb-base">No tournaments found</h3>
+<p class="font-body-md text-on-surface-variant max-w-[250px]">We couldn't find any matches. Try adjusting your filters.</p>
+<button class="mt-lg text-secondary-container font-label-bold uppercase tracking-wider underline decoration-2 underline-offset-4" onclick="resetFilters()">Reset Filters</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-sm bg-surface/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_10px_rgba(255,87,23,0.5)] scale-90" href="tournaments.html">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Tournaments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="match-room.html">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">My Matches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="admin-dashboard.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-[10px] uppercase mt-1">Profile</span>
+</a>
+</nav>
+<div id="menu-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+<aside id="top-menu" class="fixed left-0 top-0 h-full w-[280px] max-w-[85vw] bg-surface/95 border-r border-white/10 shadow-2xl transform -translate-x-full transition-transform duration-300 z-50">
+  <div class="p-md">
+    <div class="flex items-center justify-between mb-lg">
+      <div>
+        <p class="font-label-bold uppercase text-label-bold text-on-surface-variant">Menu</p>
+        <h2 class="font-headline-sm text-headline-sm text-white">Arena GG</h2>
+      </div>
+      <button id="menu-close-button" class="material-symbols-outlined text-on-surface hover:text-primary transition-opacity">close</button>
+    </div>
+    <nav class="space-y-sm">
+      <a href="index.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Home</a>
+      <a href="tournaments.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Tournaments</a>
+      <a href="match-room.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">My Matches</a>
+      <a href="submit-result.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Submit Result</a>
+      <a href="admin-dashboard.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Admin Dashboard</a>
+    </nav>
+  </div>
+</aside>
+<script>
+        // Simple search interactivity
+        const searchInput = document.querySelector('input[type="text"]');
+        const cards = document.querySelectorAll('#tournament-list > div');
+        const emptyState = document.getElementById('empty-state');
+        const listContainer = document.getElementById('tournament-list');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(term)) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (visibleCount === 0) {
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+                listContainer.classList.add('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+                listContainer.classList.remove('hidden');
+            }
+        });
+
+        function resetFilters() {
+            searchInput.value = '';
+            cards.forEach(card => card.classList.remove('hidden'));
+            emptyState.classList.add('hidden');
+            emptyState.classList.remove('flex');
+            listContainer.classList.remove('hidden');
+        }
+
+        // Add micro-interaction to buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.classList.add('scale-95');
+            });
+            btn.addEventListener('touchend', function() {
+                this.classList.remove('scale-95');
+            });
+        });
+    </script>
+    <script>
+        const menuButton = document.getElementById('top-menu-button');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const topMenu = document.getElementById('top-menu');
+        const menuClose = document.getElementById('menu-close-button');
+
+        function openMenu() {
+            topMenu.classList.remove('-translate-x-full');
+            menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            menuOverlay.classList.add('opacity-100');
+        }
+
+        function closeMenu() {
+            topMenu.classList.add('-translate-x-full');
+            menuOverlay.classList.remove('opacity-100');
+            menuOverlay.classList.add('opacity-0');
+            setTimeout(() => menuOverlay.classList.add('pointer-events-none'), 300);
+        }
+
+        menuButton?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        menuOverlay?.addEventListener('click', closeMenu);
+    </script>
+</body></html>

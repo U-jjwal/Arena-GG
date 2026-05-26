@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARENA GG | Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-primary {
+            box-shadow: 0 0 20px rgba(255, 87, 23, 0.4);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        .active-tab {
+            border-bottom: 2px solid #ff5717;
+            color: #ff5717;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#131313",
+                      "primary-container": "#ff5717",
+                      "on-secondary-fixed-variant": "#004e5f",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#003642",
+                      "on-tertiary": "#432c00",
+                      "on-secondary-container": "#005669",
+                      "surface-variant": "#353534",
+                      "on-primary-container": "#521300",
+                      "on-primary-fixed": "#3a0b00",
+                      "on-primary-fixed-variant": "#842500",
+                      "background": "#131313",
+                      "on-tertiary-fixed": "#281900",
+                      "surface-tint": "#ffb59e",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2a",
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed": "#b4ebff",
+                      "tertiary-container": "#c08600",
+                      "on-primary": "#5e1700",
+                      "surface-container": "#201f1f",
+                      "secondary-container": "#00d2fd",
+                      "tertiary-fixed": "#ffdeac",
+                      "primary": "#ffb59e",
+                      "tertiary-fixed-dim": "#ffba38",
+                      "surface-bright": "#3a3939",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#604100",
+                      "inverse-surface": "#e5e2e1",
+                      "inverse-primary": "#ad3300",
+                      "on-surface-variant": "#e6beb2",
+                      "secondary-fixed-dim": "#3cd7ff",
+                      "tertiary": "#ffba38",
+                      "on-error": "#690005",
+                      "outline-variant": "#5c4037",
+                      "primary-fixed-dim": "#ffb59e",
+                      "surface-container-highest": "#353534",
+                      "primary-fixed": "#ffdbd0",
+                      "outline": "#ac897e",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#a2e7ff",
+                      "surface-dim": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#001f27",
+                      "on-tertiary-container": "#3a2600",
+                      "on-background": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "container-padding": "16px",
+                      "sm": "12px",
+                      "base": "4px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "body-md": ["DM Sans"],
+                      "label-mono": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "display-md": ["Barlow Condensed"],
+                      "headline-sm": ["Barlow Condensed"],
+                      "display-lg": ["Barlow Condensed"],
+                      "label-bold": ["DM Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                      "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-md">
+<span id="top-menu-button" class="material-symbols-outlined text-primary-container cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<h1 class="font-display-md text-display-md italic tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(255,87,23,0.6)]">ARENA GG</h1>
+<span class="bg-error-container text-white text-[10px] px-sm py-base rounded-full font-label-bold uppercase tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> Admin
+            </span>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity cursor-pointer">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary-container rounded-full"></span>
+</div>
+<div class="w-8 h-8 rounded-full border border-white/20 overflow-hidden">
+<img alt="Admin Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyDsEaYdTqwB0tZvswdDgf4jzpr-9zHOcz1qUki9Ah0PEqGtQPsu52T4gVwLpjpv2c_dO1Ty_NTjARJAcDJtWaxfVmRNr-c2fUj4eDoTdh5fr4C4a-SSCJXWOFH_Vum1izhUW8GecS7Kb8ykVPBx4PMzQLoY3nDrF2NvIulTsISeDAsUvkXDR8Uxg4ryk-Hewkn39NwGw9OapiXJoda5bRHmmS9SHUU8bMPDEd7u69GSI0lg8WGQIxpJFj6iuNHAXCE-yxVrnkaA_J"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-container-padding max-w-5xl mx-auto">
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm mb-lg">
+<div class="glass-card p-md rounded-lg flex flex-col gap-1 border-l-2 border-l-secondary-container">
+<span class="text-on-surface-variant font-label-bold text-label-bold uppercase">Total Players</span>
+<span class="text-display-md font-display-md text-secondary-container">1,248</span>
+<span class="text-[10px] text-secondary-fixed-dim font-label-mono">+12% vs last week</span>
+</div>
+<div class="glass-card p-md rounded-lg flex flex-col gap-1 border-l-2 border-l-tertiary">
+<span class="text-on-surface-variant font-label-bold text-label-bold uppercase">Verified</span>
+<span class="text-display-md font-display-md text-tertiary">912</span>
+<div class="w-full bg-white/5 h-1 rounded-full mt-1">
+<div class="bg-tertiary h-full w-[73%] rounded-full shadow-[0_0_8px_rgba(255,186,56,0.5)]"></div>
+</div>
+</div>
+<div class="glass-card p-md rounded-lg flex flex-col gap-1 border-l-2 border-l-primary-container">
+<span class="text-on-surface-variant font-label-bold text-label-bold uppercase">Scores Pending</span>
+<span class="text-display-md font-display-md text-primary-container">42</span>
+<span class="text-[10px] text-error font-label-mono animate-pulse">Action Required</span>
+</div>
+<div class="glass-card p-md rounded-lg flex flex-col gap-1 border-l-2 border-l-on-surface">
+<span class="text-on-surface-variant font-label-bold text-label-bold uppercase">Prize Pool</span>
+<span class="text-display-md font-display-md text-white">₹50K</span>
+<span class="text-[10px] text-on-surface-variant font-label-mono text-opacity-50">Locked &amp; Secured</span>
+</div>
+</div>
+<!-- Admin Control Tabs -->
+<div class="flex border-b border-white/10 mb-md overflow-x-auto no-scrollbar gap-lg">
+<button class="pb-sm font-label-bold text-label-bold uppercase tracking-widest active-tab transition-all" id="tab-players" onclick="switchTab('players')">Players</button>
+<button class="pb-sm font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary-container transition-all" id="tab-scores" onclick="switchTab('scores')">Scores</button>
+<button class="pb-sm font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary-container transition-all" id="tab-room" onclick="switchTab('room')">Room Code</button>
+<button class="pb-sm font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary-container transition-all" id="tab-payouts" onclick="switchTab('payouts')">Payouts</button>
+</div>
+<!-- Players Tab Content -->
+<section class="space-y-sm" id="content-players">
+<div class="flex justify-between items-center mb-sm">
+<h2 class="font-headline-sm text-headline-sm uppercase">Player Registry</h2>
+<div class="relative">
+<input class="bg-surface-container-lowest border border-white/10 rounded-lg py-xs px-md pl-10 text-body-md focus:border-secondary-container outline-none transition-all" placeholder="Search ID..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-body-lg">search</span>
+</div>
+</div>
+<div class="overflow-hidden rounded-lg border border-white/10">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high">
+<tr>
+<th class="p-md font-label-bold text-label-bold text-on-surface-variant uppercase">Player</th>
+<th class="p-md font-label-bold text-label-bold text-on-surface-variant uppercase hidden md:table-cell">Status</th>
+<th class="p-md font-label-bold text-label-bold text-on-surface-variant uppercase text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 bg-surface-container-low">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<img alt="P1" class="w-8 h-8 rounded border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYB11_YKfZCK688nCk8M7205zhec_rpEiHr-vVwxqI8xlazOqMtLHdYnukVVEtciEotj9Lt1Rg0rdJn_v2sGxedxOwo5cY3ptv6WMmLLn8Fc3LWRn7BmAg6asMcQ6u_6GLNBsqZdJFiCRwHfrmjmTuBpnnx7bvOxNmRLa7686PiLyCGKfu4IdWlfeaqnyWXdCMOTiIPZ8cWF8-rrtzn4dxSIa9JGhVmHr7VcnAICRIgwIqQ3nEEke3LMPdmjzU9XG6EV80YGutJ_PK"/>
+<div class="flex flex-col">
+<span class="font-label-bold text-white">GhostRider_99</span>
+<span class="text-[10px] text-on-surface-variant font-label-mono">UID: 829104</span>
+</div>
+</div>
+</td>
+<td class="p-md hidden md:table-cell">
+<span class="bg-error/10 text-error border border-error/20 px-sm py-0.5 rounded text-[10px] uppercase font-bold">Unverified</span>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="bg-secondary-container text-on-secondary px-sm py-1 rounded text-[10px] font-bold uppercase hover:opacity-80 transition-opacity">Verify</button>
+<button class="bg-surface-variant text-white px-sm py-1 rounded text-[10px] font-bold uppercase hover:bg-error transition-all">Remove</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-md">
+<div class="flex items-center gap-sm">
+<img alt="P2" class="w-8 h-8 rounded border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6b5ac5xTwPdIM-mPVYDCNDQS7AZ3vh96J8I-8yjkEijZDeHAsHga3HS8fqVnogohyEuH2wWQ2eRGng1zhOYV8MGL7h_XrQsnWWICgckMq6aTU5f_nf2hqbcQ0-_YwWng0WmJfc_2LRnu-w1uICLp_NQUqZRmfwZIrbanJwJXPuaXa4thfg7ZDHwva5Ywq-WGWch5vttKoXEv4_k5ZuqkyMtPhYER3rNK7F3QvT9gc7uMjq0-g7BUQSnTROMLZPGbfkgDB4Le8yWRF"/>
+<div class="flex flex-col">
+<span class="font-label-bold text-white">SlayerPro</span>
+<span class="text-[10px] text-on-surface-variant font-label-mono">UID: 110293</span>
+</div>
+</div>
+</td>
+<td class="p-md hidden md:table-cell">
+<span class="bg-secondary-container/10 text-secondary-container border border-secondary-container/20 px-sm py-0.5 rounded text-[10px] uppercase font-bold">Verified</span>
+</td>
+<td class="p-md text-right">
+<div class="flex justify-end gap-xs">
+<button class="bg-surface-variant text-white px-sm py-1 rounded text-[10px] font-bold uppercase hover:bg-error transition-all">Remove</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Scores Tab Content (Hidden by default) -->
+<section class="hidden space-y-sm" id="content-scores">
+<h2 class="font-headline-sm text-headline-sm uppercase">Match Submissions</h2>
+<div class="space-y-sm">
+<!-- Score Row -->
+<div class="glass-card p-md rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-md border-l-2 border-l-primary-container">
+<div class="flex items-center gap-md">
+<div class="relative w-12 h-12">
+<img class="w-full h-full object-cover rounded border border-white/20 cursor-pointer hover:scale-110 transition-transform" data-alt="A gritty high-contrast cinematic photograph of a mobile game end-of-match victory screen showing player stats and K/D ratios. The lighting is low with orange and teal neon glows highlighting specific UI elements. The overall mood is intense and professional, capturing a moment of competitive triumph in a grassroots esports tournament setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDigsXQ-6Np6Dgy5bfPp3q9qOf8DHuOfFYaWTa8Py_Z8ciTITwfuUA3pGcGBnT1hmCBcLUUa0UGnvUrEl2kCtMz9IRtrw2B-zz1tPa-_tNfTFRheH_aWRTETwTIoJ8WLcu_KDHQwms6Ec_Ip5idwRuVVTRvbq5D9jUsco1THpKTdGJjX3Om-W4tni-wfHBw9ix56GTVD17GO6HnW_lZHE1nK_i2aiT6nORRlXhgWTBeX9MCB2HgrFkaJu0NcD84pza7BcEFdJaOGxBZ"/>
+<span class="absolute -bottom-1 -right-1 bg-primary-container text-[8px] font-bold px-1 rounded">IMAGE</span>
+</div>
+<div>
+<p class="font-label-bold text-white">Team Alpha (Rank #1)</p>
+<p class="text-[10px] text-on-surface-variant font-label-mono">Kills: 14 | Reported by: LeaderAlpha</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none border border-white/10 hover:border-white/20 text-on-surface text-[11px] font-bold uppercase px-md py-sm rounded transition-all">View Proof</button>
+<button class="flex-1 md:flex-none bg-primary-container text-white text-[11px] font-bold uppercase px-md py-sm rounded glow-primary hover:scale-95 transition-all">Approve</button>
+<button class="flex-1 md:flex-none bg-surface-variant text-error text-[11px] font-bold uppercase px-md py-sm rounded hover:bg-error/20 transition-all">Dispute</button>
+</div>
+</div>
+<div class="glass-card p-md rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-md border-l-2 border-l-on-surface-variant/20">
+<div class="flex items-center gap-md">
+<div class="relative w-12 h-12">
+<img class="w-full h-full object-cover rounded border border-white/20 cursor-pointer" data-alt="A close-up shot of a player holding a futuristic mobile device showing a game scoreboard with a high density of information. The setting is a dark room with cyan and magenta ambient lighting creating a cyberpunk aesthetic. The focus is on the technical details of the game interface and the intense atmosphere of a live esports match." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB3JVth7RY2AuZ2ytXRaz-V-Xtl4mKTe8rjHxY-kkMi1Dx0uaTFTHMD38OnjaJuOIhXx3dEInBWVFGVHn5zyMM6v9t67mGa8763LUIw-ff_cL1YphYP94gDB_3sHoy_xmVOcmNL8I9EbDDyBr0TxgdRTinFTC5Z31wQQlQt1VVmtRtWQdqazsCSgEtdJZvWcx81n7zDBompeb0Q6TwOyxpvLsvD1RjdSyiwFbVCt-ke4cNm-sp498TTpBz28E8O69ETUo47rW3pTmU"/>
+<span class="absolute -bottom-1 -right-1 bg-secondary-container text-[8px] font-bold px-1 rounded text-on-secondary">IMAGE</span>
+</div>
+<div>
+<p class="font-label-bold text-white">Team Beta (Rank #3)</p>
+<p class="text-[10px] text-on-surface-variant font-label-mono">Kills: 08 | Reported by: BetaBoy</p>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="flex-1 md:flex-none border border-white/10 text-on-surface text-[11px] font-bold uppercase px-md py-sm rounded">View Proof</button>
+<button class="flex-1 md:flex-none bg-primary-container text-white text-[11px] font-bold uppercase px-md py-sm rounded glow-primary hover:scale-95 transition-all">Approve</button>
+<button class="flex-1 md:flex-none bg-surface-variant text-error text-[11px] font-bold uppercase px-md py-sm rounded">Dispute</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Room Code Tab Content (Hidden by default) -->
+<section class="hidden" id="content-room">
+<div class="max-w-md mx-auto glass-card p-xl rounded-xl border border-primary-container/30">
+<h2 class="font-headline-sm text-headline-sm uppercase mb-md text-center">Broadcast Room Details</h2>
+<div class="space-y-lg">
+<div class="space-y-base">
+<label class="font-label-bold text-label-bold uppercase text-on-surface-variant">Room ID</label>
+<input class="w-full bg-surface-container-lowest border border-white/10 rounded px-md py-sm font-label-mono text-secondary-container focus:border-secondary-container outline-none" type="text" value="8821 9022"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-bold text-label-bold uppercase text-on-surface-variant">Password</label>
+<input class="w-full bg-surface-container-lowest border border-white/10 rounded px-md py-sm font-label-mono text-secondary-container focus:border-secondary-container outline-none" type="text" value="ARENA@2024"/>
+</div>
+<div class="pt-md">
+<button class="w-full bg-primary-container text-white font-display-md text-[18px] py-md rounded-lg flex items-center justify-center gap-sm glow-primary hover:scale-95 active:scale-90 transition-all uppercase italic">
+<span class="material-symbols-outlined">sms</span>
+                            Blast SMS to Players
+                        </button>
+<p class="text-center text-[10px] text-on-surface-variant mt-sm font-label-mono uppercase">Last sent: 45 minutes ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Payouts Tab Content (Placeholder) -->
+<section class="hidden" id="content-payouts">
+<div class="flex flex-col items-center justify-center py-xl glass-card rounded-lg border-dashed border-2 border-white/10">
+<span class="material-symbols-outlined text-display-lg text-white/20 mb-md">account_balance_wallet</span>
+<p class="font-headline-sm text-on-surface-variant uppercase">Payout Interface Locked</p>
+<p class="text-body-md text-on-surface-variant/60 text-center max-w-xs mt-xs italic">Tournament must conclude and all scores approved before processing rewards.</p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-sm bg-surface/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="index.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-[10px] uppercase">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="tournaments.html">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-bold text-[10px] uppercase">Tournaments</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all" href="match-room.html">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-bold text-[10px] uppercase">My Matches</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_10px_rgba(255,87,23,0.5)] scale-90 transition-all" href="admin-dashboard.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-[10px] uppercase">Profile</span>
+</a>
+</nav>
+<div id="menu-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+<aside id="top-menu" class="fixed left-0 top-0 h-full w-[280px] max-w-[85vw] bg-surface/95 border-r border-white/10 shadow-2xl transform -translate-x-full transition-transform duration-300 z-50">
+  <div class="p-md">
+    <div class="flex items-center justify-between mb-lg">
+      <div>
+        <p class="font-label-bold uppercase text-label-bold text-on-surface-variant">Menu</p>
+        <h2 class="font-headline-sm text-headline-sm text-white">Arena GG</h2>
+      </div>
+      <button id="menu-close-button" class="material-symbols-outlined text-on-surface hover:text-primary transition-opacity">close</button>
+    </div>
+    <nav class="space-y-sm">
+      <a href="index.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Home</a>
+      <a href="tournaments.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Tournaments</a>
+      <a href="match-room.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">My Matches</a>
+      <a href="submit-result.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Submit Result</a>
+      <a href="admin-dashboard.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Admin Dashboard</a>
+    </nav>
+  </div>
+</aside>
+<script>
+        function switchTab(tabName) {
+            const contents = ['players', 'scores', 'room', 'payouts'];
+            contents.forEach(name => {
+                const element = document.getElementById(`content-${name}`);
+                if (name === tabName) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+
+            const tabs = ['players', 'scores', 'room', 'payouts'];
+            tabs.forEach(name => {
+                const tab = document.getElementById(`tab-${name}`);
+                if (name === tabName) {
+                    tab.classList.add('active-tab');
+                    tab.classList.remove('text-on-surface-variant');
+                } else {
+                    tab.classList.remove('active-tab');
+                    tab.classList.add('text-on-surface-variant');
+                }
+            });
+        }
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'all 0.3s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+    <script>
+        const menuButton = document.getElementById('top-menu-button');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const topMenu = document.getElementById('top-menu');
+        const menuClose = document.getElementById('menu-close-button');
+
+        function openMenu() {
+            topMenu.classList.remove('-translate-x-full');
+            menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            menuOverlay.classList.add('opacity-100');
+        }
+
+        function closeMenu() {
+            topMenu.classList.add('-translate-x-full');
+            menuOverlay.classList.remove('opacity-100');
+            menuOverlay.classList.add('opacity-0');
+            setTimeout(() => menuOverlay.classList.add('pointer-events-none'), 300);
+        }
+
+        menuButton?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        menuOverlay?.addEventListener('click', closeMenu);
+    </script>
+</body></html>

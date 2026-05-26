@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Match Room - ARENA GG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 87, 23, 0.4);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 210, 253, 0.3);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        @keyframes pulse-fast {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-fast {
+            animation: pulse-fast 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#131313",
+                      "primary-container": "#ff5717",
+                      "on-secondary-fixed-variant": "#004e5f",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#003642",
+                      "on-tertiary": "#432c00",
+                      "on-secondary-container": "#005669",
+                      "surface-variant": "#353534",
+                      "on-primary-container": "#521300",
+                      "on-primary-fixed": "#3a0b00",
+                      "on-primary-fixed-variant": "#842500",
+                      "background": "#131313",
+                      "on-tertiary-fixed": "#281900",
+                      "surface-tint": "#ffb59e",
+                      "error-container": "#93000a",
+                      "surface-container-high": "#2a2a2a",
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed": "#b4ebff",
+                      "tertiary-container": "#c08600",
+                      "on-primary": "#5e1700",
+                      "surface-container": "#201f1f",
+                      "secondary-container": "#00d2fd",
+                      "tertiary-fixed": "#ffdeac",
+                      "primary": "#ffb59e",
+                      "tertiary-fixed-dim": "#ffba38",
+                      "surface-bright": "#3a3939",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#604100",
+                      "inverse-surface": "#e5e2e1",
+                      "inverse-primary": "#ad3300",
+                      "on-surface-variant": "#e6beb2",
+                      "secondary-fixed-dim": "#3cd7ff",
+                      "tertiary": "#ffba38",
+                      "on-error": "#690005",
+                      "outline-variant": "#5c4037",
+                      "primary-fixed-dim": "#ffb59e",
+                      "surface-container-highest": "#353534",
+                      "primary-fixed": "#ffdbd0",
+                      "outline": "#ac897e",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "secondary": "#a2e7ff",
+                      "surface-dim": "#131313",
+                      "on-surface": "#e5e1e1",
+                      "on-secondary-fixed": "#001f27",
+                      "on-tertiary-container": "#3a2600",
+                      "on-background": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "8px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "container-padding": "16px",
+                      "sm": "12px",
+                      "base": "4px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "body-md": ["DM Sans"],
+                      "label-mono": ["DM Sans"],
+                      "body-lg": ["DM Sans"],
+                      "display-md": ["Barlow Condensed"],
+                      "headline-sm": ["Barlow Condensed"],
+                      "display-lg": ["Barlow Condensed"],
+                      "label-bold": ["DM Sans"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                      "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-sm">
+<a href="index.html" class="material-symbols-outlined text-on-surface transition-opacity hover:opacity-80 active:scale-95 duration-100">arrow_back</a>
+<span class="font-display-md text-display-md italic tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(255,87,23,0.6)]">ARENA GG</span>
+</div>
+<div class="flex items-center gap-sm">
+<a href="submit-result.html" class="material-symbols-outlined text-on-surface transition-opacity hover:opacity-80 active:scale-95 duration-100">share</a>
+<a href="admin-dashboard.html" class="material-symbols-outlined text-on-surface transition-opacity hover:opacity-80 active:scale-95 duration-100">help_outline</a>
+</div>
+</header>
+<main class="pt-16 pb-32 px-container-padding flex flex-col gap-lg">
+<!-- Match Timer Alert Banner -->
+<div class="mt-md bg-primary-container text-on-primary-fixed font-label-bold text-label-bold flex items-center justify-between px-md py-sm rounded-lg glow-orange animate-pulse-fast">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span>MATCH STARTS IN 00:45:00</span>
+</div>
+<div class="bg-on-primary-fixed text-primary-container px-xs py-[2px] rounded text-[10px]">LIVE SOON</div>
+</div>
+<!-- Match Status Tracker (Stepper) -->
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between px-xs">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest">Match Progress</h3>
+<span class="text-secondary-container font-label-mono text-label-mono">STAGE 2/5</span>
+</div>
+<div class="glass-card p-lg rounded-xl flex justify-between relative overflow-hidden">
+<!-- Background Progress Line -->
+<div class="absolute top-[42px] left-xl right-xl h-[2px] bg-white/10 z-0"></div>
+<div class="absolute top-[42px] left-xl w-1/4 h-[2px] bg-secondary-container z-0"></div>
+<!-- Steps -->
+<div class="flex flex-col items-center gap-xs z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center shadow-[0_0_10px_rgba(0,210,253,0.5)]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-label-bold text-[10px] text-secondary-container">Registered</span>
+</div>
+<div class="flex flex-col items-center gap-xs z-10">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center shadow-[0_0_10px_rgba(0,210,253,0.5)]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">key</span>
+</div>
+<span class="font-label-bold text-[10px] text-secondary-container">Room Sent</span>
+</div>
+<div class="flex flex-col items-center gap-xs z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">sensors</span>
+</div>
+<span class="font-label-bold text-[10px] text-on-surface-variant">Match Live</span>
+</div>
+<div class="flex flex-col items-center gap-xs z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">analytics</span>
+</div>
+<span class="font-label-bold text-[10px] text-on-surface-variant">Result Pending</span>
+</div>
+<div class="flex flex-col items-center gap-xs z-10">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">emoji_events</span>
+</div>
+<span class="font-label-bold text-[10px] text-on-surface-variant">Done</span>
+</div>
+</div>
+</div>
+<!-- Room Credentials Card -->
+<div class="glass-card rounded-xl overflow-hidden border-t-2 border-t-secondary-container glow-cyan">
+<div class="p-lg flex flex-col gap-lg">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">ENTRY PROTOCOL</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Join the custom lobby using the details below.</p>
+</div>
+<div class="bg-secondary-container/10 p-xs rounded-lg">
+<span class="material-symbols-outlined text-secondary-container">security</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<!-- Room ID -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">ROOM ID</label>
+<div class="bg-surface-container-lowest border border-white/10 rounded-lg p-md flex items-center justify-between">
+<span class="font-display-md text-display-md tracking-[4px] text-secondary-container">9928374</span>
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="copyText('9928374', this)">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase">PASSWORD</label>
+<div class="bg-surface-container-lowest border border-white/10 rounded-lg p-md flex items-center justify-between">
+<span class="font-display-md text-display-md tracking-[4px] text-secondary-container">AGX77</span>
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="copyText('AGX77', this)">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-variant/20 rounded-lg p-md flex items-start gap-sm border-l-4 border-l-tertiary">
+<span class="material-symbols-outlined text-tertiary">warning</span>
+<p class="font-body-md text-body-md text-on-surface-variant italic">Please do not share these credentials. Violation results in immediate disqualification.</p>
+</div>
+</div>
+</div>
+<!-- Match Info Bento -->
+<div class="grid grid-cols-2 gap-md">
+<div class="glass-card p-md rounded-xl flex flex-col gap-xs">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">MAP</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">ERANGEL</span>
+</div>
+<div class="glass-card p-md rounded-xl flex flex-col gap-xs">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">MODE</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">SQUAD TPP</span>
+</div>
+<div class="glass-card p-md rounded-xl col-span-2 flex items-center justify-between">
+<div class="flex flex-col gap-xs">
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">TEAM MATES</span>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Close-up portrait of a young professional male gamer with neon blue backlighting in a dark room. The lighting emphasizes a sharp jawline and focused expression, consistent with a high-end esports branding aesthetic featuring deep blacks and cyan accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqSVjqJxU2Qcsh7y5HdlsVSOyh_l513MROiNX2Rhq0q_PWAIDY81bMmU4JRf6VM7qv19ZUu9TPmUs2CiBdkze3d3ImHeRs1tXw_-8ejLz_wtDtBs6h5k8emlx1VN3Vh4JfvCBGVaCynP6CYC3xsuG7hi52h3cyrmND1J5eNL3uJlmadXIn8y_WxJ4C3cRusXewozEv-Bf1VlSBoHtlZphCLz-VEveXqKe_AArjtnB6fJgf60ZiNAtJbJS9Qw6DjXlI_tvuJZ7NWGzR"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Vibrant portrait of a female competitive gamer with striking pink and orange lighting on her face, set against a dark, minimalist tech background. She has a determined look, reflecting the high-stakes grassroots esports atmosphere with professional studio lighting and clean composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQ_MG3uJBb1Ahkoe4CXsar031hh5JsrBmrHku8HdIM7bcUjTNaBBKi2AGZ5h3LWnw5vUTr4buR8kDcqY2xm3XuCO5UhnaLxlfV4auj9YWWVu4E8O_Do3Bjuuow1-jabznIq_tM2LMRAwLQUFB2vBhHelshuah37ovxpqMoYR5j2oA_eGRUwhbprCaSSa8BcaPhLqrAWwelHbdphsbML_ZMB-BX57JR8D13sidqfXmDCug0D6PXo59Iffn3MJ6XwLG3neY_r2Dq33t"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+</div>
+<button class="bg-on-secondary-fixed-variant/20 text-secondary-container px-md py-xs rounded-lg font-label-bold text-label-bold hover:bg-secondary-container hover:text-on-secondary transition-all">VIEW TEAM</button>
+</div>
+</div>
+<!-- Submit Result Button (Sticky Bottom Container) -->
+<div class="fixed bottom-0 left-0 w-full p-container-padding bg-surface/90 backdrop-blur-xl border-t border-white/10 z-50">
+<button class="w-full h-14 bg-surface-container-highest text-on-surface/30 cursor-not-allowed rounded-lg font-display-md text-display-md flex items-center justify-center gap-sm transition-all grayscale" disabled="">
+<span class="material-symbols-outlined">upload_file</span>
+                SUBMIT MY RESULT
+            </button>
+<p class="text-center mt-xs font-label-mono text-label-mono text-on-surface-variant">UNLOCKS AFTER MATCH COMPLETION</p>
+</div>
+</main>
+<script>
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text);
+            const icon = btn.querySelector('.material-symbols-outlined');
+            icon.textContent = 'check';
+            icon.classList.add('text-secondary-container');
+            
+            setTimeout(() => {
+                icon.textContent = 'content_copy';
+                icon.classList.remove('text-secondary-container');
+            }, 2000);
+        }
+
+        // Simulating match live unlock
+        setTimeout(() => {
+            const banner = document.querySelector('.animate-pulse-fast');
+            if (banner) {
+                // Future logic to change banner state
+            }
+        }, 5000);
+    </script>
+</body></html>

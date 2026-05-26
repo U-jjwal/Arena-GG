@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARENA GG | India's Grassroots Esports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "primary-container": "#ff5717",
+                    "on-secondary-fixed-variant": "#004e5f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary": "#003642",
+                    "on-tertiary": "#432c00",
+                    "on-secondary-container": "#005669",
+                    "surface-variant": "#353534",
+                    "on-primary-container": "#521300",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-primary-fixed-variant": "#842500",
+                    "background": "#131313",
+                    "on-tertiary-fixed": "#281900",
+                    "surface-tint": "#ffb59e",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed": "#b4ebff",
+                    "tertiary-container": "#c08600",
+                    "on-primary": "#5e1700",
+                    "surface-container": "#201f1f",
+                    "secondary-container": "#00d2fd",
+                    "tertiary-fixed": "#ffdeac",
+                    "primary": "#ffb59e",
+                    "tertiary-fixed-dim": "#ffba38",
+                    "surface-bright": "#3a3939",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#604100",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-primary": "#ad3300",
+                    "on-surface-variant": "#e6beb2",
+                    "secondary-fixed-dim": "#3cd7ff",
+                    "tertiary": "#ffba38",
+                    "on-error": "#690005",
+                    "outline-variant": "#5c4037",
+                    "primary-fixed-dim": "#ffb59e",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed": "#ffdbd0",
+                    "outline": "#ac897e",
+                    "error": "#ffb4ab",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#a2e7ff",
+                    "surface-dim": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-fixed": "#001f27",
+                    "on-tertiary-container": "#3a2600",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "container-padding": "16px",
+                    "sm": "12px",
+                    "base": "4px",
+                    "gutter": "12px"
+            },
+            "fontFamily": {
+                    "body-md": ["DM Sans"],
+                    "label-mono": ["DM Sans"],
+                    "body-lg": ["DM Sans"],
+                    "display-md": ["Barlow Condensed"],
+                    "headline-sm": ["Barlow Condensed"],
+                    "display-lg": ["Barlow Condensed"],
+                    "label-bold": ["DM Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'DM Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow-primary {
+            box-shadow: 0 0 20px rgba(255, 87, 23, 0.4);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        .asymmetric-clip {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<div class="flex items-center gap-sm">
+<span id="top-menu-button" class="material-symbols-outlined text-primary-container cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<h1 class="font-display-md text-display-md italic tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(255,87,23,0.6)]">ARENA GG</h1>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface hover:opacity-80 transition-opacity">notifications</span>
+<div class="w-8 h-8 rounded-full border border-primary-container/50 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylized portrait of a competitive mobile gamer wearing high-tech gaming headphones and a tactical jersey. The lighting is cinematic with sharp orange and cyan highlights reflecting off their face in a dark, high-intensity esports environment. The overall aesthetic is aggressive, technical, and digital." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyZV9Eef1RXf5BIBsFyre0XIfPLQGnlfFpQB58yBG2khrFX60Q1PtT9Rl31lQD0TK5y9tkqRdteK-C_Teh_1Wrm4IlHZVoVrD3859QBkFJ5on9QDjRXGvijJvneNajRPMSwxleAWg1B3afUCF8InEGC_G6JGocwEQotb3GwZbOPMpvh8dV4hWfGL1hTYRfr5t-SvdsTpUi-4OHQwo0FZRiAj2ARiVWoSca3D_gvFF67rJB-1ZkiAFVu-FX1AP1NPHGdiv3f1UQAb5p"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="mt-16 space-y-lg">
+<!-- Hero Banner -->
+<section class="relative w-full aspect-[4/5] md:aspect-video flex items-end p-container-padding overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, low-angle shot of a high-energy mobile esports tournament stage in India. Intense neon orange and cyan strobe lights cut through a dark, smoke-filled arena. Massive screens in the background display tactical game data and a glowing Arena GG logo. The atmosphere is radioactive and technical, embodying cyberpunk brutalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7jVQgyBjVEbW6ToEph-_Ev3cBUirpgQAXqRyxp06Bp1FA1m7YwGvE7YdM5djz_6OPp19gIGHr6jjpKiO4LngSW13WIcjwsbbcGU_jhXn0A0zPRBKcOpBAQ6Ker3RwNVG24M0wbesKJchM9OYlpzieOYQH2lmaU2tToFaLM-ilxjC7atXgvBrNhgaAk9rI-zmDPjVq4SCZgrgOB2R9EnH0S70JQ5-E4gQKj71AvRsmwx15wOukKywdUkUqmBvat3Gm809HeAsV-VRI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full space-y-md">
+<div class="inline-block bg-primary-container px-sm py-xs asymmetric-clip">
+<span class="font-label-bold text-label-bold text-on-primary-container">SEASON 04 LIVE</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-white max-w-xs uppercase leading-none">INDIA'S GRASSROOTS ESPORTS PLATFORM</h2>
+<div class="flex flex-col gap-sm sm:flex-row">
+<button class="bg-[#ff4f00] text-white font-label-bold text-label-bold py-md px-lg rounded-sm neon-glow-primary active:scale-95 duration-100 uppercase tracking-widest">JOIN TOURNAMENT</button>
+<button class="glass-card text-white font-label-bold text-label-bold py-md px-lg rounded-sm active:scale-95 duration-100 uppercase tracking-widest">VIEW BRACKETS</button>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="px-container-padding">
+<div class="grid grid-cols-3 gap-xs">
+<div class="glass-card p-sm flex flex-col items-center text-center">
+<span class="text-secondary font-display-md text-headline-sm">148M+</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Casual Gamers</span>
+</div>
+<div class="glass-card p-sm flex flex-col items-center text-center">
+<span class="text-primary-container font-display-md text-headline-sm">₹1K</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Daily Prizes</span>
+</div>
+<div class="glass-card p-sm flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary-container mb-xs" data-weight="fill">sports_esports</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant uppercase">Free Fire MAX</span>
+</div>
+</div>
+</section>
+<!-- Active Tournaments -->
+<section class="space-y-sm">
+<div class="flex justify-between items-end px-container-padding">
+<h3 class="font-display-md text-display-md text-white uppercase italic">Active Tournaments</h3>
+<span class="font-label-bold text-label-bold text-secondary-container uppercase">View All</span>
+</div>
+<div class="flex overflow-x-auto gap-md px-container-padding pb-md snap-x">
+<!-- Tournament Card 1 -->
+<div class="flex-shrink-0 w-72 snap-start glass-card border-l-4 border-l-secondary-container p-md space-y-md">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-xs text-secondary-container">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary-container"></span>
+</span>
+<span class="font-label-bold text-label-bold">LIVE</span>
+</div>
+<div class="text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">group</span>
+<span class="font-label-mono text-label-mono">32/48 Joined</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-white uppercase leading-tight">Clash Squad Pro League</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Free Fire MAX • Duo</p>
+</div>
+<div class="flex items-center justify-between pt-sm">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Prize Pool</p>
+<p class="font-display-md text-headline-sm text-primary-container">₹1,500</p>
+</div>
+<button class="bg-secondary-container/10 border border-secondary-container text-secondary-container font-label-bold text-label-bold py-xs px-md neon-glow-cyan active:scale-95 duration-100 uppercase">JOIN NOW</button>
+</div>
+</div>
+<!-- Tournament Card 2 -->
+<div class="flex-shrink-0 w-72 snap-start glass-card border-l-4 border-l-tertiary-fixed-dim p-md space-y-md">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-xs text-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-bold text-label-bold">Starts in 02:14:05</span>
+</div>
+<div class="text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span class="font-label-mono text-label-mono">Featured</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-white uppercase leading-tight">Battle Royale Elite Cup</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Free Fire MAX • Squad</p>
+</div>
+<div class="flex items-center justify-between pt-sm">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Prize Pool</p>
+<p class="font-display-md text-headline-sm text-primary-container">₹2,500</p>
+</div>
+<button class="bg-surface-variant text-white font-label-bold text-label-bold py-xs px-md active:scale-95 duration-100 uppercase">DETAILS</button>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="px-container-padding py-xl bg-surface-container-lowest/50">
+<h3 class="font-display-md text-display-md text-white uppercase italic mb-lg text-center">How to Compete</h3>
+<div class="grid grid-cols-1 gap-md">
+<!-- Step 1 -->
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 flex-shrink-0 glass-card flex items-center justify-center border-primary-container/20">
+<span class="font-display-md text-headline-sm text-primary-container">01</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-bold text-label-bold text-white uppercase">Register</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Pick a tournament and join solo or with your squad.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">app_registration</span>
+</div>
+<!-- Connector -->
+<div class="h-8 w-px bg-white/10 ml-6"></div>
+<!-- Step 2 -->
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 flex-shrink-0 glass-card flex items-center justify-center border-secondary-container/20">
+<span class="font-display-md text-headline-sm text-secondary-container">02</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-bold text-label-bold text-white uppercase">Get Room Code</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The private match code is sent 15 mins before start.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">vpn_key</span>
+</div>
+<!-- Connector -->
+<div class="h-8 w-px bg-white/10 ml-6"></div>
+<!-- Step 3 -->
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 flex-shrink-0 glass-card flex items-center justify-center border-white/10">
+<span class="font-display-md text-headline-sm text-white">03</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-bold text-label-bold text-white uppercase">Play Match</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Battle it out on the mobile arena. Points for kills &amp; rank.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">joystick</span>
+</div>
+<!-- Connector -->
+<div class="h-8 w-px bg-white/10 ml-6"></div>
+<!-- Step 4 -->
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 flex-shrink-0 glass-card flex items-center justify-center border-tertiary-fixed-dim/20">
+<span class="font-display-md text-headline-sm text-tertiary-fixed-dim">04</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-bold text-label-bold text-white uppercase">Win Prize</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Instant prize pool payout to your secure wallet.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">payments</span>
+</div>
+</div>
+</section>
+<!-- Community Callout -->
+<section class="px-container-padding">
+<div class="glass-card p-lg rounded-xl overflow-hidden relative">
+<div class="absolute top-0 right-0 p-sm opacity-20">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<h3 class="font-display-md text-display-md text-white uppercase leading-none mb-xs">Join our Discord</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md max-w-[240px]">Get daily room codes and meet India's top mobile players.</p>
+<button class="bg-[#5865F2] text-white font-label-bold text-label-bold py-sm px-lg rounded-sm active:scale-95 duration-100 uppercase flex items-center gap-sm">
+                    Connect Now
+                    <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-base py-sm bg-surface/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-primary-container drop-shadow-[0_0_10px_rgba(255,87,23,0.5)] scale-90 transition-transform" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-bold text-[10px] uppercase">Home</span>
+</a>
+<!-- Tournaments -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="tournaments.html">
+<span class="material-symbols-outlined">sports_esports</span>
+<span class="font-label-bold text-[10px] uppercase">Tournaments</span>
+</a>
+<!-- My Matches -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="match-room.html">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-bold text-[10px] uppercase">My Matches</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="admin-dashboard.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-bold text-[10px] uppercase">Profile</span>
+</a>
+</nav><div id="menu-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40"></div>
+<aside id="top-menu" class="fixed left-0 top-0 h-full w-[280px] max-w-[85vw] bg-surface/95 border-r border-white/10 shadow-2xl transform -translate-x-full transition-transform duration-300 z-50">
+  <div class="p-md">
+    <div class="flex items-center justify-between mb-lg">
+      <div>
+        <p class="font-label-bold uppercase text-label-bold text-on-surface-variant">Menu</p>
+        <h2 class="font-headline-sm text-headline-sm text-white">Arena GG</h2>
+      </div>
+      <button id="menu-close-button" class="material-symbols-outlined text-on-surface hover:text-primary transition-opacity">close</button>
+    </div>
+    <nav class="space-y-sm">
+      <a href="index.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Home</a>
+      <a href="tournaments.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Tournaments</a>
+      <a href="match-room.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">My Matches</a>
+      <a href="submit-result.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Submit Result</a>
+      <a href="admin-dashboard.html" class="block px-sm py-sm rounded-lg hover:bg-white/5 text-on-surface transition-colors">Admin Dashboard</a>
+    </nav>
+  </div>
+</aside><script>
+        // Micro-interaction: Scroll reveal for glass cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0.5';
+            card.style.transform = 'translateY(10px)';
+            card.style.transition = 'all 0.4s ease-out';
+            observer.observe(card);
+        });
+
+        // Pulsing Live badges
+        setInterval(() => {
+            document.querySelectorAll('.animate-ping').forEach(el => {
+                el.style.opacity = '0.75';
+            });
+        }, 1500);
+    </script>
+    <script>
+        const menuButton = document.getElementById('top-menu-button');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const topMenu = document.getElementById('top-menu');
+        const menuClose = document.getElementById('menu-close-button');
+
+        function openMenu() {
+            topMenu.classList.remove('-translate-x-full');
+            menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            menuOverlay.classList.add('opacity-100');
+        }
+
+        function closeMenu() {
+            topMenu.classList.add('-translate-x-full');
+            menuOverlay.classList.remove('opacity-100');
+            menuOverlay.classList.add('opacity-0');
+            setTimeout(() => menuOverlay.classList.add('pointer-events-none'), 300);
+        }
+
+        menuButton?.addEventListener('click', openMenu);
+        menuClose?.addEventListener('click', closeMenu);
+        menuOverlay?.addEventListener('click', closeMenu);
+    </script>
+</body></html>

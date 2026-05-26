@@ -1,0 +1,12 @@
+{
+  "name": "arena-gg",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "serve frontend/ui -l 4173",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

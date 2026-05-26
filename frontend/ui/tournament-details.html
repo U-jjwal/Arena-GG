@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tournament Details | ARENA GG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(255, 87, 23, 0.4);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 210, 253, 0.3);
+        }
+        @keyframes pulse-red {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .pulse-live {
+            animation: pulse-red 2s infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#131313",
+                        "primary-container": "#ff5717",
+                        "on-secondary-fixed-variant": "#004e5f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary": "#003642",
+                        "on-tertiary": "#432c00",
+                        "on-secondary-container": "#005669",
+                        "surface-variant": "#353534",
+                        "on-primary-container": "#521300",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-primary-fixed-variant": "#842500",
+                        "background": "#131313",
+                        "on-tertiary-fixed": "#281900",
+                        "surface-tint": "#ffb59e",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#b4ebff",
+                        "tertiary-container": "#c08600",
+                        "on-primary": "#5e1700",
+                        "surface-container": "#201f1f",
+                        "secondary-container": "#00d2fd",
+                        "tertiary-fixed": "#ffdeac",
+                        "primary": "#ffb59e",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "surface-bright": "#3a3939",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#ad3300",
+                        "on-surface-variant": "#e6beb2",
+                        "secondary-fixed-dim": "#3cd7ff",
+                        "tertiary": "#ffba38",
+                        "on-error": "#690005",
+                        "outline-variant": "#5c4037",
+                        "primary-fixed-dim": "#ffb59e",
+                        "surface-container-highest": "#353534",
+                        "primary-fixed": "#ffdbd0",
+                        "outline": "#ac897e",
+                        "error": "#ffb4ab",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#a2e7ff",
+                        "surface-dim": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#001f27",
+                        "on-tertiary-container": "#3a2600",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "container-padding": "16px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["DM Sans"],
+                        "label-mono": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "display-md": ["Barlow Condensed"],
+                        "headline-sm": ["Barlow Condensed"],
+                        "display-lg": ["Barlow Condensed"],
+                        "label-bold": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-md": ["32px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                        "headline-sm": ["24px", {"lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-bold": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white pb-32">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10">
+<button class="flex items-center justify-center w-10 h-10 hover:opacity-80 transition-opacity active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary-container">arrow_back</span>
+</button>
+<h1 class="font-display-md text-display-md italic tracking-tighter text-primary-container drop-shadow-[0_0_8px_rgba(255,87,23,0.6)]">ARENA GG</h1>
+<button class="flex items-center justify-center w-10 h-10 hover:opacity-80 transition-opacity active:scale-95 duration-100">
+<span class="material-symbols-outlined text-primary-container">share</span>
+</button>
+</header>
+<main class="pt-16">
+<!-- Hero Banner -->
+<section class="relative h-72 w-full overflow-hidden">
+<img alt="Tournament Banner" class="w-full h-full object-cover" data-alt="A high-octane cinematic shot of a professional esports arena during a live tournament. The stage is bathed in intense orange and cyan stage lights, with large LED screens displaying abstract futuristic game graphics. Wisps of atmospheric smoke catch the laser beams, creating a sense of drama and high-stakes competition. The overall aesthetic is dark, aggressive, and technologically advanced, matching a cyberpunk tactical HUD theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW7aQFpljO60S6ZeC6k61rQ18f3YbzHSUqz0XQdbSTgeYkeKLdZBMcoKsFFDRrsJlUcOPM7MoeVZkmlu-0_I4aNrbXKY-jNhmduEuwNtsk9vAfCdRX83cZtFOA3xrANMzzWYWk1ty_fikXF7V5MK8CmBmBq_OrT0FNTFSQS9gyLHB7D6w9OxpENd9VK5j8R-oe7BXshSLGZyYUI73zz3hNkelH89itw9VuZWmY8Kq8Y77ILWGxt89GKpHlPD07hVvzzPnUXuZ9JcnK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
+<!-- Live Badge Overlay -->
+<div class="absolute top-4 right-4 flex items-center gap-2 px-sm py-1 rounded bg-error/90 backdrop-blur pulse-live border border-white/20">
+<span class="w-2 h-2 rounded-full bg-white"></span>
+<span class="font-label-bold text-label-bold text-white uppercase tracking-widest">Live Now</span>
+</div>
+<!-- Title Overlay -->
+<div class="absolute bottom-4 left-4 right-4">
+<div class="flex items-center gap-2 mb-base">
+<span class="px-xs py-0.5 rounded-sm bg-secondary-container/20 border border-secondary-container text-secondary-container font-label-mono text-label-mono uppercase">BGMI Pro League</span>
+</div>
+<h2 class="font-display-md text-display-md text-white uppercase italic">Shadow Strike Championship</h2>
+</div>
+</section>
+<!-- 2x2 Info Grid -->
+<section class="px-container-padding -mt-4 relative z-10">
+<div class="grid grid-cols-2 gap-sm">
+<!-- Prize Pool -->
+<div class="glass-panel p-md rounded-lg flex flex-col gap-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+<span class="font-label-bold text-label-bold uppercase">Prize Pool</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-tertiary">₹50,000</p>
+</div>
+<!-- Entry Fee -->
+<div class="glass-panel p-md rounded-lg flex flex-col gap-base border-l-2 border-l-primary-container">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">confirmation_number</span>
+<span class="font-label-bold text-label-bold uppercase">Entry Fee</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-white">₹50</p>
+</div>
+<!-- Total Slots -->
+<div class="glass-panel p-md rounded-lg flex flex-col gap-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">group</span>
+<span class="font-label-bold text-label-bold uppercase">Slots</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-white">64 / 100</p>
+<div class="w-full h-1 bg-white/10 rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-secondary-container glow-cyan" style="width: 64%"></div>
+</div>
+</div>
+<!-- Game Mode -->
+<div class="glass-panel p-md rounded-lg flex flex-col gap-base">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+<span class="font-label-bold text-label-bold uppercase">Game Mode</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-white">Squad • Erangel</p>
+</div>
+</div>
+</section>
+<!-- Prize Breakdown -->
+<section class="mt-lg px-container-padding">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-widest mb-md ml-1">Rank Rewards</h3>
+<div class="glass-panel rounded-xl overflow-hidden divide-y divide-white/10">
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-tertiary-container/20 flex items-center justify-center border border-tertiary">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-white">1st Position</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Champion Trophy + MVP Badge</p>
+</div>
+</div>
+<p class="font-headline-sm text-headline-sm text-tertiary">₹25,000</p>
+</div>
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-slate-400/20 flex items-center justify-center border border-slate-400">
+<span class="material-symbols-outlined text-slate-400" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-white">2nd Position</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Silver Medal</p>
+</div>
+</div>
+<p class="font-headline-sm text-headline-sm text-slate-400">₹15,000</p>
+</div>
+<div class="flex items-center justify-between p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-amber-800/20 flex items-center justify-center border border-amber-800">
+<span class="material-symbols-outlined text-amber-800" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-white">3rd Position</p>
+<p class="font-label-mono text-label-mono text-on-surface-variant">Bronze Medal</p>
+</div>
+</div>
+<p class="font-headline-sm text-headline-sm text-amber-800">₹10,000</p>
+</div>
+</div>
+</section>
+<!-- Registered Players & Rules Accordion -->
+<section class="mt-lg px-container-padding space-y-md">
+<!-- Player Stack -->
+<div class="glass-panel p-md rounded-lg flex items-center justify-between">
+<div>
+<p class="font-label-bold text-label-bold text-white mb-1">Registered Participants</p>
+<div class="flex -space-x-3 overflow-hidden">
+<img alt="User 1" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface" data-alt="Close up profile portrait of a young competitive gamer with neon blue backlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9176Rq7Btb-Upy1r-hM0uB2Wb14xwCDGRde_QivJHIWzsrl-LxYK2hSmjyxnLSJgn02cT1M8KBPTsEuHTLpbN6H8YU-9NsKmnLVb_g002mDmblyI9aDtqDfoGH-OXjkkCaiJnDogDTeE225I2R7rIwbvn3u2ma9AKuocjkYoDXbTUswuSdjrszfkSHbp9KnoweMCxjkK_NycX3UORh3vT4vs71EsO1T7cOnbGGW5unlMY96cSSHEAEYZMCsXg4mXWGW8Jv8vTy29Y"/>
+<img alt="User 2" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface" data-alt="Close up profile portrait of a professional esports athlete wearing a tactical jersey in a dark studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6L7cGHQM01Yl94INVRF4evdhmh6MIwHyf3ciKQx9lC5sSF99UhRFZddDwjAbI17kwWkgKcJCRslLc3lXl_pTAxhIYfwf0gMZ9K6IlKnHduddJvVlCrTzjDzhm19HwtKhz8_8ri_Ji-B-D_e86lWcsNOHCAcOf4ykbecCcSwon50krdwflrfZ5NxfFIw3XtfK7q-tPmdJTvSa9nVxThGqmtG62C-vMCDt6p51w3LsfDYHvf7EbcxeTJ_TPDplOMN29b1VIpSXQ4M_w"/>
+<img alt="User 3" class="inline-block h-8 w-8 rounded-full ring-2 ring-surface" data-alt="Close up profile portrait of a gaming streamer with vibrant purple accent lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFhkW9zo-C0KB1GXj-WERO1poG5V0GGkbLDbj_1HpfUxdiRxeVuY-r4dEajJLSwoTL6TKIRC-AO8HPn7ToZVnB18Q3I7o4bUxejfCfs6uKhCcH_jxV6oH9k1WNJ0aetq8TlfugLRTh-tr1hG9pDeUg_DzIQuPFIcemnrZh-1FH49OLCd9naR_fiPEmnFribnJ7Q73wJ6pp2rNFERaM4xzq3_2KLgbG4tDHY06iN4xqVzBSxhw8kfBdVRR9yNxxLw32kwOQEO4ztET"/>
+<div class="flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-surface bg-surface-container text-[10px] font-label-bold">+61</div>
+</div>
+</div>
+<button class="text-secondary-container font-label-bold text-label-bold flex items-center gap-1 uppercase hover:opacity-80 transition-opacity">
+                    View All <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<!-- Rules Accordion -->
+<div class="space-y-sm">
+<div class="glass-panel rounded-lg overflow-hidden transition-all duration-300">
+<button class="w-full p-md flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+<span class="font-label-bold text-label-bold text-white uppercase">Rules &amp; Guidelines</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content hidden px-md pb-md text-on-surface-variant space-y-2">
+<p class="font-body-md text-body-md flex gap-2">
+<span class="text-primary-container">•</span> Emulators are strictly prohibited.
+                        </p>
+<p class="font-body-md text-body-md flex gap-2">
+<span class="text-primary-container">•</span> Recording POV is mandatory for top 3 teams.
+                        </p>
+<p class="font-body-md text-body-md flex gap-2">
+<span class="text-primary-container">•</span> Teaming up results in an immediate permanent ban.
+                        </p>
+</div>
+</div>
+<div class="glass-panel rounded-lg overflow-hidden transition-all duration-300">
+<button class="w-full p-md flex items-center justify-between text-left" onclick="toggleAccordion(this)">
+<span class="font-label-bold text-label-bold text-white uppercase">Schedule</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content hidden px-md pb-md text-on-surface-variant space-y-2">
+<p class="font-body-md text-body-md flex gap-2">
+<span class="text-secondary-container font-label-bold">R1:</span> 14th Oct, 06:00 PM IST
+                        </p>
+<p class="font-body-md text-body-md flex gap-2">
+<span class="text-secondary-container font-label-bold">Finals:</span> 15th Oct, 09:00 PM IST
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Join Bar -->
+<footer class="fixed bottom-0 w-full z-50 p-container-padding bg-surface/90 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-md max-w-2xl mx-auto">
+<button class="w-14 h-14 glass-panel rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">bookmark</span>
+</button>
+<button class="flex-1 h-14 bg-primary-container text-white font-display-md text-headline-sm uppercase rounded-lg glow-orange flex items-center justify-center gap-2 active:scale-95 transition-all">
+                Join Tournament <span class="opacity-40">•</span> ₹50
+            </button>
+</div>
+</footer>
+<script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.material-symbols-outlined');
+            
+            // Toggle visibility
+            content.classList.toggle('hidden');
+            
+            // Rotate icon
+            if (content.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Simple parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('section img');
+            heroImage.style.transform = `translateY(${scrolled * 0.4}px)`;
+        });
+    </script>
+</body></html>
